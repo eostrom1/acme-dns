@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+##  Unreleased
 - Add index on `txt(Subdomain)` so DNS lookups no longer degrade to full table scans as registrations grow (created idempotently on startup, applies to existing databases)
 - Split DB timeouts: a short read timeout on the DNS hot path so a stalled connection no longer pins a worker for 20s after the resolver has already given up
 - Recycle idle PostgreSQL connections within a minute (`SetConnMaxIdleTime`) so a silently-dropped TCP connection is retired before it stalls the next query borrowing it
